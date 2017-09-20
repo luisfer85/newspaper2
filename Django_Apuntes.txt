@@ -63,8 +63,8 @@
     1  git config --global user.name "luisfer85"             (Configurar cuenta GitHub)
     2  git config --global user.email "luisfer85@gmail.com"  (Configurar cuenta GitHub)
     3  git config --list                                     (Listar la configuracion)
-    4  git clone https://github.com/luisfer85/newspaper.git  (Clonar un directorio GitHub)
-    5  git add newspaper/                                    (Añadir cambios en Git antes del commit) (Sensible a la ruta en que nos encontramos por terminal)
+    4  git clone https://github.com/luisfer85/newspaper2.git  (Clonar un directorio GitHub)
+    5  git add newspaper2/                                    (Añadir cambios en Git antes del commit) (Sensible a la ruta en que nos encontramos por terminal)
     6  git add *                                             (Añadir todos los cambios en Git antes del commit) (Sensible a la ruta en que nos encontramos por terminal)
     7  git commit -a                                         (Crear un commit Git)
     8  git push                                              (Subir cambios a GitHub)
@@ -74,10 +74,10 @@
 
 ---COMANDOS DJANGO---
     1  django-admin help
-    2  django-admin startproject newspaper
+    2  django-admin startproject newspaper2
     3  python manage.py help
     4  python manage.py startapp news
-    5  mv news newspaper/
+    5  mv news newspaper2/
 
 
 ---INICIAR SERVIDOR WEB DE PRUEBAS---
