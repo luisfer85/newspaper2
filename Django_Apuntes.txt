@@ -1,0 +1,110 @@
+---INSTALAR TODO LO NECESARIO---
+    1  sudo vi /etc/network/interfaces
+    2  sudo apt-get update
+    3  sudo apt-get install openssh-server
+    4  sudo apt-get install python
+    5  sudo apt-get install python-dev
+    6  sudo apt-get install python3
+    7  sudo apt-get install python3-dev
+    8  sudo apt-get install python-setuptools
+    9  sudo apt-get install python3-setuptools
+   10  sudo apt-get install python-pip
+   11  sudo apt-get install python3-pip
+   12  sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm git
+   13  sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+   14  sudo vi /etc/vsftpd.conf
+   15  sudo pip3 install --egg pyenv (esta deprecated, MEJOR NO USARLO)
+   16  sudo pip3 install virtualenv
+
+
+---INSTALAR DJANGO EN ENTRORNO VIRTUAL CON PYTHON 3.5.3---
+    1  pyenv local 3.5.3
+    2  virtualenv -p python3 vnewspaper
+    3  pyenv local system
+    4  source vnewspaper/bin/activate
+    5  pip3 install Pillow
+    6  pip3 install Django
+    7  pip3 install ipython
+    8  pip3 install ipdb
+    9  source vnewspaper/bin/activate
+    10  deactivate
+
+---OBJETOS Y CLASES---
+    class Libro(object):
+        
+        def __init__(self, nombre, autor, editorial, genero="Historia"):
+            super(Libro, self).__init__()
+            self.nombre = nombre
+            self.autor = autor
+            self.editorial = editorial
+            self.genero = genero
+
+    ej: libro = Libro("Guerra y Paz", "Leon Tolstoi", editorial="El Aleph", genero="Novela")
+        libro.nombre
+
+    class Novela(Libro):
+        
+        def __init__(self, nombre, autor, editorial, genero="Historia", nombre_capitulos=None):
+            super(Novela, self).__init__(nombre, autor, editorial, genero)
+            self.genero = 'Novela'
+            self.nombre_capitulos = nombre_capitulos
+
+        def get_nombre_capitulo(self, i):
+            return self.nombre_capitulos[i -1]
+
+    novela = Novela("Guerra y Paz", "Leon Tolstoi", editorial="El Aleph", nombre_capitulos=["Cap 1", "Cap 2", "Cap 3"])
+
+    ej: libro = Libro("Guerra y Paz", "Leon Tolstoi", editorial="El Aleph", genero="Novela")
+        novela.nombre
+        novela.get_nombre_capitulo(2)
+
+
+---COMANDOS DE GIT---
+    1  git config --global user.name "luisfer85"             (Configurar cuenta GitHub)
+    2  git config --global user.email "luisfer85@gmail.com"  (Configurar cuenta GitHub)
+    3  git config --list                                     (Listar la configuracion)
+    4  git clone https://github.com/luisfer85/newspaper.git  (Clonar un directorio GitHub)
+    5  git add newspaper/                                    (Añadir cambios en Git antes del commit) (Sensible a la ruta en que nos encontramos por terminal)
+    6  git add *                                             (Añadir todos los cambios en Git antes del commit) (Sensible a la ruta en que nos encontramos por terminal)
+    7  git commit -a                                         (Crear un commit Git)
+    8  git push                                              (Subir cambios a GitHub)
+    9  git diff settings.py                                  (Ver diferencias entre archivo original y nuevo)
+   10  git status                                            (Cambios no añadidos para el commit)
+
+
+---COMANDOS DJANGO---
+    1  django-admin help
+    2  django-admin startproject newspaper
+    3  python manage.py help
+    4  python manage.py startapp news
+    5  mv news newspaper/
+
+
+---INICIAR SERVIDOR WEB DE PRUEBAS---
+    1  python manage.py runserver 0.0.0.0:8000
+    2  python manage.py migrate
+    3  python manage.py runserver 0.0.0.0:8000
+
+---SINCRONIZAR BASE DE DATOS CON MODELO---
+    1  python manage.py createsuperuser (Crear usuario administrador del admin)
+    2  python manage.py makemigrations news (Crea el archivo de migracion para crear la BD)
+    3  python manage.py migrate (Hace la migracion (sincroniza) que crea la BD u otras migraciones pendientes) (sincdb desaparece en Django 1.9)
+
+---ENTRAR EN CONSOLA DE BD---
+    1  python manage.py dbshell (Entra en la consola de la BD que utlizamos)
+
+---CREAR COMANDOS DJANGO---
+    1  Crear la estructura de carpeta "management"
+
+---PUNTOS DE RUPTURA---
+    1  import pdb; pdb.set_trace() (Crea el punto de ruptura donde lo pongamos) (Tambien podemos usar ipdb)
+
+---HUEVOS INTERESANTES---
+    1  pip install django-bootstrap3 (Huevo para pintar formularios como bootstrap) (https://pypi.python.org/pypi/django-bootstrap3)
+
+---CONTEXT PROCESSOR---
+    Se ejecutan antes de renderizar la plantilla
+    Para añadir los content_processors hay que añadir esto en la renderizacion de views: context_instance=RequestContext(request)
+
+---MIDDLEWARES---
+    Clases que se ejecutan antes y/o despues de la vista
