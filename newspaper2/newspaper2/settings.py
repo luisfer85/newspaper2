@@ -25,7 +25,7 @@ SECRET_KEY = '-enp9%3jrkcz(r@1@xq^$64bsif%r68b2s6ux3l=qcl1jg(2e+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['85.214.225.9', '81.169.155.204', 'h2727680.stratoserver.net']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'newspaper2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'newspaper2', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'statics')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'newspaper2', 'statics')]
