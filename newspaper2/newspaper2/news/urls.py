@@ -18,4 +18,6 @@ from newspaper2.news import views
 
 urlpatterns = [
     url(r'^$', views.news_list, name='news_list'),
+    url(r'^news/add/$', views.news_add, name='news_add'),
+    url(r'^news/edit/(?P<newsitem_pk>\d+)/$', views.news_edit, name='news_edit'),
 ]

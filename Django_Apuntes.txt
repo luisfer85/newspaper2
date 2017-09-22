@@ -110,7 +110,8 @@
 ---MIDDLEWARES---
     Clases que se ejecutan antes y/o despues de la vista
 
-
+---ADICION Y EDICION DE CONTENIDOS---
+    https://gist.github.com/goinnn/3958232
 
 
 
