@@ -3,12 +3,19 @@
 {% block head %}
     {{ block.super }}
     <style type="text/css">
-        .clase1 {
+        .rojo {
         	color: red;
         }
     </style>
 {% endblock %}
 
 {% block content %}
-    <div class="clase1">TODO: Realizar plantilla de news list</div>
+    <div class="row">
+    {% for newsitem in news %}
+        <div class="col-lg-4 col-md-6">
+            <h2>{{ newsitem.title }}</h2>
+            <p>{{ newsitem.description|safe|truncatewords_html:25 }}</p>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}
