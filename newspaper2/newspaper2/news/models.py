@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class BaseNews(models.Model):
-    title = models.CharField(_('title'), max_length=255)
+    title = models.CharField(_('title'), max_length=255, help_text='Hola Mundo')
     description = models.TextField(_('description'))
     publish_date = models.DateTimeField(_('publish_date'))
 
