@@ -89,6 +89,7 @@
     1  python manage.py createsuperuser (Crear usuario administrador del admin)
     2  python manage.py makemigrations news (Crea el archivo de migracion para crear la BD)
     3  python manage.py migrate (Hace la migracion (sincroniza) que crea la BD u otras migraciones pendientes) (sincdb desaparece en Django 1.9)
+    4  python manage.py inspectdb (Nos muestra como seria el modelo de una base de datos ya existente) (Es muy aproximado pero no exacto)
 
 ---ENTRAR EN CONSOLA DE BD---
     1  python manage.py dbshell (Entra en la consola de la BD que utlizamos)
@@ -108,3 +109,33 @@
 
 ---MIDDLEWARES---
     Clases que se ejecutan antes y/o despues de la vista
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---TAREAS---
+    1  Paginar news. El numero de noticias por pagina tiene que ser una variable de settings
+
+    2  https://openwebinars.net/academia/curso/curso-online-django/451/
+       Cambiar consulta de noticias:
+
+       news = News.objects.filter(
+        publish_date__lte=datetime.now()).order_by('-publish_date')
+       
+       Por algo como esto:
+
+       news = News.objects.published()
+
+       Usando managers
+
+    3  Crear el listado de eventos parecido al de noticias
