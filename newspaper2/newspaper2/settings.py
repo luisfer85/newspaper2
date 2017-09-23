@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newspaper2.news',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

@@ -125,6 +125,8 @@
 
 
 ---TAREAS---
+    0  Investigar jinja2
+    
     1  Paginar news. El numero de noticias por pagina tiene que ser una variable de settings
 
     2  https://openwebinars.net/academia/curso/curso-online-django/451/
