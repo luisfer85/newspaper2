@@ -4,8 +4,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from newspaper2.news.forms import NewsForm
-from newspaper2.news.models import News
+from newspaper2.news.forms import NewsForm, EventForm
+from newspaper2.news.models import News, Event
 
 def news_list(request):
     news = News.objects.filter(
@@ -35,7 +35,7 @@ def news_add(request):
     if news_form.is_valid():
         news_form.save()
         return HttpResponseRedirect(reverse('news_list'))
-    return render(request, 'news/news_add.html',
+    return render(request, 'news/news_edit.html',
         {'news_form': news_form})
 
 
@@ -52,3 +52,40 @@ def news_edit(request, newsitem_pk):
         return HttpResponseRedirect(reverse('news_list'))
     return render(request, 'news/news_edit.html',
         {'news_form': news_form})
+
+
+def events_list(request):
+    events = Event.objects.filter(
+        publish_date__lte=datetime.now()).order_by('-publish_date')
+    return render(request, 'news/events_list.html',
+        {'events': events})
+
+
+def event_add(request):
+    if request.method == 'POST':
+        data = request.POST
+    else:
+        data = None
+    initial = {'publish_date': datetime.now()}
+    event_form = EventForm(data=data,
+        initial=initial) # Da un valor por defecto a publish_date
+    if event_form.is_valid():
+        event_form.save()
+        return HttpResponseRedirect(reverse('events_list'))
+    return render(request, 'news/event_edit.html',
+        {'event_form': event_form})
+
+
+def event_edit(request, newsitem_pk):
+    if request.method == 'POST':
+        data = request.POST
+    else:
+        data = None
+    event = Event.objects.get(pk=newsitem_pk)
+    event_form = EventForm(data=data,
+        instance=event)
+    if event_form.is_valid():
+        event_form.save()
+        return HttpResponseRedirect(reverse('events_list'))
+    return render(request, 'news/event_edit.html',
+        {'event_form': event_form})

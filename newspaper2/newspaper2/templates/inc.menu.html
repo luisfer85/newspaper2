@@ -18,15 +18,15 @@
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              {% trans "News" %}<span class="caret"></span></a>
+              {% trans "News and Events" %}<span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li class="dropdown-header">{% trans "News" %}</li>
                 <li><a href="{% url 'news_list' %}">{% trans "News List" %}</a></li>
                 <li><a href="{% url 'news_add' %}">{% trans "Add News" %}</a></li>
-                <li><a href="#">Something else here</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li class="dropdown-header">{% trans "Events" %}</li>
+                <li><a href="{% url 'events_list' %}">{% trans "Events List" %}</a></li>
+                <li><a href="{% url 'event_add' %}">{% trans "Add Event" %}</a></li>
               </ul>
             </li>
           </ul>
