@@ -19,6 +19,16 @@ def news_add(request):
         data = request.POST
     else:
         data = None
+    '''
+    # Si queremos recoger el valor del title mediante GET
+    if 'title' in request.GET:
+        initial = {'title': request.GET['title']
+    '''
+    '''
+    # Mas dificil todavia
+    if 'name' in request.GET:
+        initial = {'description': 'Estimado: %s' % request.GET['name']}
+    '''
     initial = {'publish_date': datetime.now()}
     news_form = NewsForm(data=data,
         initial=initial) # Da un valor por defecto a publish_date
