@@ -42,7 +42,13 @@
             {% endif %}
 
             {% for i in news.paginator.page_range  %}
-                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% if news.number == i %}
+                    <li class="disabled">
+                        <span>{{ i }}</span>
+                    </li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
             {% endfor %}
 
             {% if news.has_next %}   
