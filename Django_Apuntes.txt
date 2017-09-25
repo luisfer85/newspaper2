@@ -129,22 +129,10 @@
 
     1  Paginar news. El numero de noticias por pagina tiene que ser una variable de settings
 
-    2  https://openwebinars.net/academia/curso/curso-online-django/451/
-       Cambiar consulta de noticias:
+    2  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)
 
-       news = News.objects.filter(
-        publish_date__lte=datetime.now()).order_by('-publish_date')
-       
-       Por algo como esto:
+    3  Añadir un foreing key (FK) a nuestros modelos de noticias y eventos. Por ejemplo a User, indicando que este usuario sera el propietario.
 
-       news = News.objects.published()
+    4  Añadir editor WYSIWYG tanto en el admin como en el formulario de la vista publica. (Mirar django-tinymce)
 
-       Usando managers
-
-    3  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)
-
-    4  Añadir un foreing key (FK) a nuestros modelos de noticias y eventos. Por ejemplo a User, indicando que este usuario sera el propietario.
-
-    5  Añadir editor WYSIWYG tanto en el admin como en el formulario de la vista publica. (Mirar django-tinymce)
-
-    6  Crear mensaje de noticia añadida con exito o editada con exito. https://docs.djangoproject.com/en/1.11/ref/contrib/messages/
+    5  Crear mensaje de noticia añadida con exito o editada con exito. https://docs.djangoproject.com/en/1.11/ref/contrib/messages/

@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.conf import settings # La manera correcta de importar settings
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -8,7 +10,20 @@ from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
 
 def news_list(request):
-    news = News.objects.published()
+    news_filtered = News.objects.published()
+    paginator = Paginator(news_filtered, settings.PAGINATION_PAGES) # variable en settings.py
+    page_default = 1
+
+    page = request.GET.get('page', page_default)
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        news = paginator.page(page_default)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        news = paginator.page(paginator.num_pages)
+
     return render(request, 'news/news_list.html',
         {'news': news})
 

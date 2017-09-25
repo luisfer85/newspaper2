@@ -122,3 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'newspaper2', 'statics')]
+
+PAGINATION_PAGES = 6
