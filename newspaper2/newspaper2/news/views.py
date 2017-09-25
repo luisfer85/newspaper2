@@ -8,8 +8,7 @@ from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
 
 def news_list(request):
-    news = News.objects.filter(
-        publish_date__lte=datetime.now()).order_by('-publish_date')
+    news = News.objects.published()
     return render(request, 'news/news_list.html',
         {'news': news})
 

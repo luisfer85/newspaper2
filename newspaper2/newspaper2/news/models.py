@@ -1,11 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from newspaper2.news.managers import NewsManager
+
 
 class BaseNews(models.Model):
     title = models.CharField(_('title'), max_length=255, help_text='Hola Mundo')
     description = models.TextField(_('description'), blank=True, null=True)
     publish_date = models.DateTimeField(_('publish_date'))
+
+    objects = NewsManager()
 
     class Meta:
         abstract = True #Evita crear una tabla para esta clase de tal manera que estos campos se incluyen en las tablas heredadas

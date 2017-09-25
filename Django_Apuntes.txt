@@ -141,16 +141,10 @@
 
        Usando managers
 
-    3  Crear el listado de eventos parecido al de noticias
+    3  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)
 
-    4  Realizar vista de adicion y edicion de eventos
+    4  Añadir un foreing key (FK) a nuestros modelos de noticias y eventos. Por ejemplo a User, indicando que este usuario sera el propietario.
 
-    5  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)
+    5  Añadir editor WYSIWYG tanto en el admin como en el formulario de la vista publica. (Mirar django-tinymce)
 
-    6  Añadir un foreing key (FK) a nuestros modelos de noticias y eventos. Por ejemplo a User, indicando que este usuario sera el propietario.
-
-    7  Añadir editor WYSIWYG tanto en el admin como en el formulario de la vista publica. (Mirar django-tinymce)
-
-    8  Crear mensaje de noticia añadida con exito o editada con exito. https://docs.djangoproject.com/en/1.11/ref/contrib/messages/
-
-    
+    6  Crear mensaje de noticia añadida con exito o editada con exito. https://docs.djangoproject.com/en/1.11/ref/contrib/messages/
