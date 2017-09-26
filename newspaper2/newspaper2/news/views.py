@@ -71,6 +71,12 @@ def news_edit(request, newsitem_pk):
         {'news_form': news_form})
 
 
+def news_delete(request, newsitem_pk):
+        news_item = News.objects.get(pk=newsitem_pk)
+        news_item.delete()
+        return HttpResponseRedirect(reverse('news_list'))
+
+
 def events_list(request):
     events = Event.objects.filter(
         publish_date__lte=datetime.now()).order_by('-publish_date')
@@ -94,12 +100,12 @@ def event_add(request):
         {'event_form': event_form})
 
 
-def event_edit(request, newsitem_pk):
+def event_edit(request, event_pk):
     if request.method == 'POST':
         data = request.POST
     else:
         data = None
-    event = Event.objects.get(pk=newsitem_pk)
+    event = Event.objects.get(pk=event_pk)
     event_form = EventForm(data=data,
         instance=event)
     if event_form.is_valid():
@@ -108,3 +114,9 @@ def event_edit(request, newsitem_pk):
         return HttpResponseRedirect(reverse('events_list'))
     return render(request, 'news/event_edit.html',
         {'event_form': event_form})
+
+
+def event_delete(request, event_pk):
+        event = Event.objects.get(pk=event_pk)
+        event.delete()
+        return HttpResponseRedirect(reverse('events_list'))

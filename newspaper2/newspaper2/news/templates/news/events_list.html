@@ -32,8 +32,33 @@
             <h2>
                 {{ event.title }}
                 <a href="{% url "event_edit" event.pk %}"><small>({% trans "Edit" %})</small></a>
+                <!-- Trigger the modal with a button -->
+                <a data-toggle="modal" data-target="#DeleteModal"><small>({% trans "Delete" %})</small></a>
             </h2>
             <p>{{ event.description|safe|truncatewords_html:25 }}</p>
+
+            <!-- Modal -->
+            <div id="DeleteModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">{% trans "Delete Event" %}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>{% trans "If you want delete the Event, push the botton." %}</p>
+                        <a href="{% url "event_delete" event.pk %}" class="btn btn-danger">{% trans "Delete event" %}</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
         </div>
     {% endfor %}
     </div>

@@ -126,5 +126,3 @@
 
 ---TAREAS---
     0  Investigar jinja2
-
-    1  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)

@@ -21,7 +21,9 @@ urlpatterns = [
     url(r'^news/$', views.news_list, name='news_list'),
     url(r'^news/add/$', views.news_add, name='news_add'),
     url(r'^news/edit/(?P<newsitem_pk>\d+)/$', views.news_edit, name='news_edit'),
+    url(r'^news/delete/(?P<newsitem_pk>\d+)/$', views.news_delete, name='news_delete'),
     url(r'^events/$', views.events_list, name='events_list'),
     url(r'^events/add/$', views.event_add, name='event_add'),
-    url(r'^events/edit/(?P<newsitem_pk>\d+)/$', views.event_edit, name='event_edit'),
+    url(r'^events/edit/(?P<event_pk>\d+)/$', views.event_edit, name='event_edit'),
+    url(r'^events/delete/(?P<event_pk>\d+)/$', views.event_delete, name='event_delete'),
 ]
