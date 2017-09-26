@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.conf import settings # La manera correcta de importar settings
+from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -48,6 +49,7 @@ def news_add(request):
         initial=initial) # Da un valor por defecto a publish_date
     if news_form.is_valid():
         news_form.save()
+        messages.success(request, 'Noticia creada correctamente')
         return HttpResponseRedirect(reverse('news_list'))
     return render(request, 'news/news_edit.html',
         {'news_form': news_form})
@@ -63,6 +65,7 @@ def news_edit(request, newsitem_pk):
         instance=news_item)
     if news_form.is_valid():
         news_form.save()
+        messages.success(request, 'Noticia editada correctamente')
         return HttpResponseRedirect(reverse('news_list'))
     return render(request, 'news/news_edit.html',
         {'news_form': news_form})
@@ -85,6 +88,7 @@ def event_add(request):
         initial=initial) # Da un valor por defecto a publish_date
     if event_form.is_valid():
         event_form.save()
+        messages.success(request, 'Evento creado correctamente')
         return HttpResponseRedirect(reverse('events_list'))
     return render(request, 'news/event_edit.html',
         {'event_form': event_form})
@@ -100,6 +104,7 @@ def event_edit(request, newsitem_pk):
         instance=event)
     if event_form.is_valid():
         event_form.save()
+        messages.success(request, 'Evento editado correctamente')
         return HttpResponseRedirect(reverse('events_list'))
     return render(request, 'news/event_edit.html',
         {'event_form': event_form})

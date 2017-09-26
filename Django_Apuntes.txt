@@ -130,5 +130,3 @@
     1  Añadir borrado de noticias y/o eventos (usar modal de bootstrap)
 
     2  Añadir editor WYSIWYG tanto en el admin como en el formulario de la vista publica. (Mirar django-tinymce)
-
-    3  Crear mensaje de noticia añadida con exito o editada con exito. https://docs.djangoproject.com/en/1.11/ref/contrib/messages/
