@@ -74,6 +74,7 @@ def news_edit(request, newsitem_pk):
 def news_delete(request, newsitem_pk):
         news_item = News.objects.get(pk=newsitem_pk)
         news_item.delete()
+        messages.success(request, 'Noticia eliminada correctamente')
         return HttpResponseRedirect(reverse('news_list'))
 
 
@@ -119,4 +120,5 @@ def event_edit(request, event_pk):
 def event_delete(request, event_pk):
         event = Event.objects.get(pk=event_pk)
         event.delete()
+        messages.success(request, 'Evento eliminado correctamente')
         return HttpResponseRedirect(reverse('events_list'))
