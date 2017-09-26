@@ -4,10 +4,11 @@ from django.utils.translation import gettext_lazy as _
 
 from newspaper2.news.managers import NewsManager
 
+from tinymce.models import HTMLField
 
 class BaseNews(models.Model):
     title = models.CharField(_('title'), max_length=255, help_text='Hola Mundo')
-    description = models.TextField(_('description'), blank=True, null=True)
+    description = HTMLField(_('description'), blank=True, null=True)
     publish_date = models.DateTimeField(_('publish_date'))
     owner = models.ForeignKey(User, null=True)
 
