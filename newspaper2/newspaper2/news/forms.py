@@ -3,8 +3,11 @@ from django import forms
 
 from newspaper2.news.models import News, Event
 
+from tinymce.widgets import TinyMCE
+
 class NewsForm(forms.ModelForm):
 
+    description = forms.CharField(widget=TinyMCE())
     # Evitar el uso de caracteres especificos
     def clean_title(self):
         if ';' in self.cleaned_data['title']:
@@ -17,6 +20,7 @@ class NewsForm(forms.ModelForm):
 
 class EventForm(forms.ModelForm):
 
+    description = forms.CharField(widget=TinyMCE())
     # Evitar el uso de caracteres especificos
     def clean_title(self):
         if ';' in self.cleaned_data['title']:

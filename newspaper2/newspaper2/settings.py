@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'newspaper2.news',
     'bootstrap3',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'newspaper2', 'statics')]
 
 PAGINATION_PAGES = 6
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+}

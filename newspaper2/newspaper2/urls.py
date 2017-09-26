@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('newspaper2.news.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]
