@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 01:06+0200\n"
+"POT-Creation-Date: 2017-09-28 01:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,3 +104,31 @@ msgstr "Borrar Noticia"
 #: news/templates/news/news_list.html:73
 msgid "Add news"
 msgstr "Añadir Noticia"
+
+#: news/views.py:55
+msgid "News successfully added"
+msgstr "Noticia creada correctamente"
+
+#: news/views.py:72
+msgid "News successfully edited"
+msgstr "Noticia editada correctamente"
+
+#: news/views.py:81 news/views.py:132
+msgid "Invalid Request"
+msgstr "Petición no valida"
+
+#: news/views.py:84
+msgid "News successfully deleted"
+msgstr "Noticia borrada correctamente"
+
+#: news/views.py:106
+msgid "Event successfully added"
+msgstr "Evento creado correctamente"
+
+#: news/views.py:123
+msgid "Event successfully edited"
+msgstr "Evento editado correctamente"
+
+#: news/views.py:135
+msgid "Event successfully deleted"
+msgstr "Evento borrado correctamente"

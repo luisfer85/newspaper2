@@ -7,6 +7,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
+from django.utils.translation import gettext_lazy as _
 
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
@@ -51,7 +52,7 @@ def news_add(request):
         initial=initial) # Da un valor por defecto a publish_date
     if news_form.is_valid():
         news_form.save()
-        messages.success(request, 'Noticia creada correctamente')
+        messages.success(request, _('News successfully added'))  #Con el guion bajo preparamos para traducir
         return HttpResponseRedirect(reverse('news_list'))
     return render(request, 'news/news_edit.html',
         {'news_form': news_form})
@@ -68,7 +69,7 @@ def news_edit(request, newsitem_pk):
         instance=news_item)
     if news_form.is_valid():
         news_form.save()
-        messages.success(request, 'Noticia editada correctamente')
+        messages.success(request, _('News successfully edited'))
         return HttpResponseRedirect(reverse('news_list'))
     return render(request, 'news/news_edit.html',
         {'news_form': news_form})
@@ -77,10 +78,10 @@ def news_edit(request, newsitem_pk):
 @login_required(login_url='/admin/')
 def news_delete(request, newsitem_pk):
         if request.method != 'POST':
-            return HttpResponseBadRequest('Invalid Request')
+            return HttpResponseBadRequest(_('Invalid Request'))
         news_item = get_object_or_404(News, pk=newsitem_pk)
         news_item.delete()
-        messages.success(request, 'Noticia eliminada correctamente')
+        messages.success(request, _('News successfully deleted'))
         return HttpResponseRedirect(reverse('news_list'))
 
 
@@ -102,7 +103,7 @@ def event_add(request):
         initial=initial) # Da un valor por defecto a publish_date
     if event_form.is_valid():
         event_form.save()
-        messages.success(request, 'Evento creado correctamente')
+        messages.success(request, _('Event successfully added'))
         return HttpResponseRedirect(reverse('events_list'))
     return render(request, 'news/event_edit.html',
         {'event_form': event_form})
@@ -119,7 +120,7 @@ def event_edit(request, event_pk):
         instance=event)
     if event_form.is_valid():
         event_form.save()
-        messages.success(request, 'Evento editado correctamente')
+        messages.success(request, _('Event successfully edited'))
         return HttpResponseRedirect(reverse('events_list'))
     return render(request, 'news/event_edit.html',
         {'event_form': event_form})
@@ -128,8 +129,8 @@ def event_edit(request, event_pk):
 @login_required(login_url='/admin/')
 def event_delete(request, event_pk):
         if request.method != 'POST':
-            return HttpResponseBadRequest('Invalid Request')
+            return HttpResponseBadRequest(_('Invalid Request'))
         event = get_object_or_404(Event, pk=event_pk)
         event.delete()
-        messages.success(request, 'Evento eliminado correctamente')
+        messages.success(request, _('Event successfully deleted'))
         return HttpResponseRedirect(reverse('events_list'))

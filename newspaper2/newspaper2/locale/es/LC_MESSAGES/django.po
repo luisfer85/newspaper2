@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 01:06+0200\n"
+"POT-Creation-Date: 2017-09-28 01:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,34 +22,34 @@ msgstr ""
 msgid "Home"
 msgstr "Inicio"
 
-#: templates/inc.menu.html:18
+#: templates/inc.menu.html:17
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/inc.menu.html:21
+#: templates/inc.menu.html:20
 msgid "News and Events"
 msgstr "Noticias y Eventos"
 
-#: templates/inc.menu.html:23
+#: templates/inc.menu.html:22
 msgid "News"
 msgstr "Noticias"
 
-#: templates/inc.menu.html:24
+#: templates/inc.menu.html:23
 msgid "News List"
 msgstr "Lista de Noticias"
 
-#: templates/inc.menu.html:25
+#: templates/inc.menu.html:24
 msgid "Add News"
 msgstr "Añadir Noticia"
 
-#: templates/inc.menu.html:27
+#: templates/inc.menu.html:26
 msgid "Events"
 msgstr "Eventos"
 
-#: templates/inc.menu.html:28
+#: templates/inc.menu.html:27
 msgid "Events List"
 msgstr "Lista de Eventos"
 
-#: templates/inc.menu.html:29
+#: templates/inc.menu.html:28
 msgid "Add Event"
 msgstr "Añadir Evento"
