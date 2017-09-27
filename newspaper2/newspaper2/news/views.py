@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
@@ -60,7 +60,7 @@ def news_edit(request, newsitem_pk):
         data = request.POST
     else:
         data = None
-    news_item = News.objects.get(pk=newsitem_pk)
+    news_item = get_object_or_404(News, pk=newsitem_pk)
     news_form = NewsForm(data=data,
         instance=news_item)
     if news_form.is_valid():
@@ -72,7 +72,7 @@ def news_edit(request, newsitem_pk):
 
 
 def news_delete(request, newsitem_pk):
-        news_item = News.objects.get(pk=newsitem_pk)
+        news_item = get_object_or_404(News, pk=newsitem_pk)
         news_item.delete()
         messages.success(request, 'Noticia eliminada correctamente')
         return HttpResponseRedirect(reverse('news_list'))
@@ -106,7 +106,7 @@ def event_edit(request, event_pk):
         data = request.POST
     else:
         data = None
-    event = Event.objects.get(pk=event_pk)
+    event = get_object_or_404(Event, pk=event_pk)
     event_form = EventForm(data=data,
         instance=event)
     if event_form.is_valid():
@@ -118,7 +118,7 @@ def event_edit(request, event_pk):
 
 
 def event_delete(request, event_pk):
-        event = Event.objects.get(pk=event_pk)
+        event = get_object_or_404(Event, pk=event_pk)
         event.delete()
         messages.success(request, 'Evento eliminado correctamente')
         return HttpResponseRedirect(reverse('events_list'))

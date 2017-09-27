@@ -105,7 +105,7 @@
 
 ---CONTEXT PROCESSOR---
     Se ejecutan antes de renderizar la plantilla
-    Para añadir los content_processors hay que añadir esto en la renderizacion de views: context_instance=RequestContext(request)
+    (Esto con la funcion render no hace falta)Para añadir los content_processors hay que añadir esto en la renderizacion de views: context_instance=RequestContext(request)
 
 ---MIDDLEWARES---
     Clases que se ejecutan antes y/o despues de la vista
