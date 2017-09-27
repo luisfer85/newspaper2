@@ -113,7 +113,9 @@
 ---ADICION Y EDICION DE CONTENIDOS---
     https://gist.github.com/goinnn/3958232
 
-
+---TRADUCCIONES---
+    Para las traducciones es necesario instalar gettext en linux
+    sudo apt-get install gettext
 
 
 
@@ -126,3 +128,6 @@
 
 ---TAREAS---
     0  Investigar jinja2
+
+    1  Crear vista para ver cada noticia completa
+
