@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 00:50+0200\n"
+"POT-Creation-Date: 2017-09-28 01:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,86 +18,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: models.py:10
+#: news/models.py:10
 msgid "title"
 msgstr "titulo"
 
-#: models.py:11
+#: news/models.py:11
 msgid "description"
 msgstr "descripcion"
 
-#: models.py:12
+#: news/models.py:12
 msgid "publish_date"
 msgstr "fecha_publicacion"
 
-#: models.py:26
+#: news/models.py:26
 msgid "news item"
 msgstr "noticia"
 
-#: models.py:27
+#: news/models.py:27
 msgid "news"
 msgstr "noticias"
 
-#: models.py:30
+#: news/models.py:30
 msgid "start_date"
 msgstr "fecha_comienzo"
 
-#: models.py:31
+#: news/models.py:31
 msgid "end_date"
 msgstr "fecha_finalización"
 
-#: models.py:34
+#: news/models.py:34
 msgid "event"
 msgstr "evento"
 
-#: models.py:35
+#: news/models.py:35
 msgid "events"
 msgstr "eventos"
 
-#: templates/news/event_edit.html:26 templates/news/news_edit.html:26
+#: news/templates/news/event_edit.html:26 news/templates/news/news_edit.html:26
 msgid "Submit"
 msgstr "Enviar"
 
-#: templates/news/events_list.html:35 templates/news/news_list.html:35
+#: news/templates/news/events_list.html:35
+#: news/templates/news/news_list.html:35
 msgid "Edit"
 msgstr "Editar"
 
-#: templates/news/events_list.html:37 templates/news/news_list.html:37
+#: news/templates/news/events_list.html:37
+#: news/templates/news/news_list.html:37
 msgid "Delete"
 msgstr "Borrar"
 
-#: templates/news/events_list.html:50
+#: news/templates/news/events_list.html:50
 msgid "Delete Event"
 msgstr "Borrar Evento"
 
-#: templates/news/events_list.html:55
+#: news/templates/news/events_list.html:55
 msgid "If you want delete the Event, push the botton."
 msgstr "Si quiere borrar el evento, presione el boton."
 
-#: templates/news/events_list.html:56
+#: news/templates/news/events_list.html:56
 msgid "Delete event"
 msgstr "Borrar Evento"
 
-#: templates/news/events_list.html:60 templates/news/news_list.html:60
+#: news/templates/news/events_list.html:60
+#: news/templates/news/news_list.html:60
 msgid "Close"
 msgstr "Cerrar"
 
-#: templates/news/events_list.html:73
+#: news/templates/news/events_list.html:73
 msgid "Add event"
 msgstr "Añadir evento"
 
-#: templates/news/news_list.html:50
+#: news/templates/news/news_list.html:50
 msgid "Delete News"
 msgstr "Borrar Noticia"
 
-#: templates/news/news_list.html:55
+#: news/templates/news/news_list.html:55
 msgid "If you want delete the News, push the botton."
 msgstr "Si quiere borrar la noticia, presione el boton."
 
-#: templates/news/news_list.html:56
+#: news/templates/news/news_list.html:56
 msgid "Delete news"
 msgstr "Borrar Noticia"
 
-#: templates/news/news_list.html:73
+#: news/templates/news/news_list.html:73
 msgid "Add news"
 msgstr "Añadir Noticia"

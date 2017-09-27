@@ -141,11 +141,19 @@
 
     Creamos la carpeta locale a nivel de proyecto o de aplicacion (a eleccion) y en la misma ruta en la que creamos la carpeta:
     Si queremos crear/actualizar la traducción en español: django-admin.py makemessages -l es
-    Si queremos crear/actualizar todas las traducciones: django-admin.py makemessages -a 
+    Si queremos actualizar (y solo para actualizar) todas las traducciones: django-admin.py makemessages -a
+
+    Si hacemos un makemessages del proyecto, nos actualiza tambien los locales de las aplicaciones, podemos evitarlo con:
+    django-admin.py makemessages --exclude=news -l es
+    o
+    django-admin.py makemessages --exclude=news --all
 
     Compilamos las traducciones:
     django-admin.py compilemessages
 
+    Para el resto de traducciones creamos la carpeta locale en el proyecto y lo añadimos en settings:
+    LOCALE_PATHS = [os.path.join(BASE_DIR, 'newspaper2', 'locale')]
+    y repetimos la creacion y compilacion
 
 
 

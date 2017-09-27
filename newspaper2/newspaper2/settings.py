@@ -141,3 +141,5 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 BLOG_URL = 'http://www.lamilagrosamadrid.es/'
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'newspaper2', 'locale')]
