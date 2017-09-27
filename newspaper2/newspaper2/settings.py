@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'newspaper2.context_processors.blog',
             ],
         },
     },
@@ -129,3 +130,5 @@ PAGINATION_PAGES = 6
 TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
 }
+
+BLOG_URL = 'http://www.lamilagrosamadrid.es/'
