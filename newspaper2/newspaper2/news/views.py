@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.conf import settings # La manera correcta de importar settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -29,6 +30,7 @@ def news_list(request):
         {'news': news})
 
 
+@login_required(login_url='/admin/')
 def news_add(request):
     if request.method == 'POST':
         data = request.POST
@@ -55,6 +57,7 @@ def news_add(request):
         {'news_form': news_form})
 
 
+@login_required(login_url='/admin/')
 def news_edit(request, newsitem_pk):
     if request.method == 'POST':
         data = request.POST
@@ -71,6 +74,7 @@ def news_edit(request, newsitem_pk):
         {'news_form': news_form})
 
 
+@login_required(login_url='/admin/')
 def news_delete(request, newsitem_pk):
         news_item = get_object_or_404(News, pk=newsitem_pk)
         news_item.delete()
@@ -85,6 +89,7 @@ def events_list(request):
         {'events': events})
 
 
+@login_required(login_url='/admin/')
 def event_add(request):
     if request.method == 'POST':
         data = request.POST
@@ -101,6 +106,7 @@ def event_add(request):
         {'event_form': event_form})
 
 
+@login_required(login_url='/admin/')
 def event_edit(request, event_pk):
     if request.method == 'POST':
         data = request.POST
@@ -117,6 +123,7 @@ def event_edit(request, event_pk):
         {'event_form': event_form})
 
 
+@login_required(login_url='/admin/')
 def event_delete(request, event_pk):
         event = get_object_or_404(Event, pk=event_pk)
         event.delete()
