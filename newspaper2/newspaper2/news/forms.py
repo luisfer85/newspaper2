@@ -7,7 +7,7 @@ from tinymce.widgets import TinyMCE
 
 class NewsForm(forms.ModelForm):
 
-    description = forms.CharField(widget=TinyMCE())
+    description = forms.CharField(widget=TinyMCE(), required=False)
     # Evitar el uso de caracteres especificos
     def clean_title(self):
         if ';' in self.cleaned_data['title']:
@@ -20,7 +20,7 @@ class NewsForm(forms.ModelForm):
 
 class EventForm(forms.ModelForm):
 
-    description = forms.CharField(widget=TinyMCE())
+    description = forms.CharField(widget=TinyMCE(), required=False)
     # Evitar el uso de caracteres especificos
     def clean_title(self):
         if ';' in self.cleaned_data['title']:

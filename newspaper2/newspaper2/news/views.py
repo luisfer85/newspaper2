@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from newspaper2.news.forms import NewsForm, EventForm
@@ -76,6 +76,8 @@ def news_edit(request, newsitem_pk):
 
 @login_required(login_url='/admin/')
 def news_delete(request, newsitem_pk):
+        if request.method != 'POST':
+            return HttpResponseBadRequest('Invalid Request')
         news_item = get_object_or_404(News, pk=newsitem_pk)
         news_item.delete()
         messages.success(request, 'Noticia eliminada correctamente')
@@ -125,6 +127,8 @@ def event_edit(request, event_pk):
 
 @login_required(login_url='/admin/')
 def event_delete(request, event_pk):
+        if request.method != 'POST':
+            return HttpResponseBadRequest('Invalid Request')
         event = get_object_or_404(Event, pk=event_pk)
         event.delete()
         messages.success(request, 'Evento eliminado correctamente')

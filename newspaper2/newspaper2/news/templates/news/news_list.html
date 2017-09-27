@@ -50,8 +50,11 @@
                         <h4 class="modal-title">{% trans "Delete News" %}</h4>
                     </div>
                     <div class="modal-body">
-                        <p>{% trans "If you want delete the News, push the botton." %}</p>
-                        <a href="{% url "news_delete" newsitem.pk %}" class="btn btn-danger">{% trans "Delete news" %}</a>
+                        <form method="post" action="{% url "news_delete" newsitem.pk %}">
+                            {% csrf_token %}
+                            <p>{% trans "If you want delete the News, push the botton." %}</p>
+                            <button class="btn btn-danger" method="post" type="submit">{% trans "Delete news" %}</button>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
