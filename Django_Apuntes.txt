@@ -155,7 +155,9 @@
     LOCALE_PATHS = [os.path.join(BASE_DIR, 'newspaper2', 'locale')]
     y repetimos la creacion y compilacion
 
-
+    Para traducir en codigo python importamos y usamos:
+    gettext_lazy: Cuando esta fuera de una funcion/metodo
+    gettext: Cuando esta dentro de una funcion/metodo
 
 
 

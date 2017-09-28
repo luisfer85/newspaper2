@@ -7,7 +7,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
