@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load i18n bootstrap3 %}
+
+{% block head %}
+    {{ block.super }}
+    <style type="text/css">
+        .rojo {
+        	color: red;
+        }
+    </style>
+    {{ news_form.media }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>
+                {{ news_item.title }}
+            </h2>
+            <p>{{ news_item.description|safe }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{% url "news_list" %}" class="btn btn-default"><<</a>
+        </div>
+    </div>
+{% endblock %}

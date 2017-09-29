@@ -31,6 +31,14 @@ def news_list(request):
         {'news': news})
 
 
+def news(request, newsitem_pk):
+    news_filtered = News.objects.published()
+    news_item = get_object_or_404(news_filtered, pk=newsitem_pk)
+
+    return render(request, 'news/news.html',
+        {'news_item': news_item})
+
+
 @login_required(login_url='/admin/')
 def news_add(request):
     if request.method == 'POST':
@@ -90,6 +98,15 @@ def events_list(request):
         publish_date__lte=datetime.now()).order_by('-publish_date')
     return render(request, 'news/events_list.html',
         {'events': events})
+
+
+def event(request, event_pk):
+    events_filtered = Event.objects.filter(
+        publish_date__lte=datetime.now()).order_by('-publish_date')
+    event = get_object_or_404(events_filtered, pk=event_pk)
+
+    return render(request, 'news/event.html',
+        {'event': event})
 
 
 @login_required(login_url='/admin/')

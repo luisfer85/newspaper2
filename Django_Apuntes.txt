@@ -166,5 +166,5 @@
 ---TAREAS---
     0  Investigar jinja2
 
-    1  Crear vista para ver cada noticia completa
+    1  Crear vista para ver cada noticia completa (utilizar slug)
 
