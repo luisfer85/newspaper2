@@ -159,7 +159,9 @@
     gettext_lazy: Cuando esta fuera de una funcion/metodo
     gettext: Cuando esta dentro de una funcion/metodo
 
-
+---TEST---
+    Para correr los test:
+    python manage.py test newspaper2.news
 
 
 
