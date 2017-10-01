@@ -164,9 +164,19 @@
     python manage.py test newspaper2.news
 
 Automatizacion: (Ej: https://github.com/openwebinars-django/testango)
-    Crear la configuracion de tox en tox.ini en la raiz del proyecto (donde esta la licencia y el gitignore)
-    Instalar tox fuera del virtualEnv:
-    sudo pip3 install tox
+    1 Tox para automatizacion de test en varios entornos:
+      Crear la configuracion de tox en tox.ini en la raiz del proyecto (donde esta la licencia y el gitignore)
+      Instalar tox fuera del virtualEnv:
+      sudo pip3 install tox
+    2 Coveralls para comprobar numero de lineas ejecutadas del codigo
+      No haria falta instalarlo en el sistema ni en el virtualEnv, valdria con ponerlo en el tox.ini para que se instale solo en los entornos de tox.
+      Pero si queremos generar el archivo html para verlo sera necesario instalarlo por lo menos en el virtualEnv
+      pip install coveralls
+      Creamos el archivo de configuracion en la misma ruta de tox.ini
+      En la misma ruta de tox.ini ejecutamos:
+      tox
+      coverage html
+
 
 ---VER QUERYS DE DJANGO EN FORMATO SQL---
     ej:
