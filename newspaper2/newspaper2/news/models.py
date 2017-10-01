@@ -10,7 +10,7 @@ class BaseNews(models.Model):
     title = models.CharField(_('title'), max_length=255, help_text='Hola Mundo')
     description = HTMLField(_('description'), blank=True, null=True)
     publish_date = models.DateTimeField(_('publish_date'))
-    owner = models.ForeignKey(User, null=True)
+    owner = models.ForeignKey(User,  blank=True, null=True)
 
     objects = NewsManager()
 
