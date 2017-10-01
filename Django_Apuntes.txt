@@ -163,7 +163,15 @@
     Para correr los test:
     python manage.py test newspaper2.news
 
+Automatizacion: (Ej: https://github.com/openwebinars-django/testango)
+    Crear la configuracion de tox en tox.ini en la raiz del proyecto (donde esta la licencia y el gitignore)
+    Instalar tox fuera del virtualEnv:
+    sudo pip3 install tox
 
+---VER QUERYS DE DJANGO EN FORMATO SQL---
+    ej:
+    News.objects.filter(title__startswith='Mi')
+    print News.objects.filter(title__startswith='Mi').query
 
 ---TAREAS---
     0  Investigar jinja2
