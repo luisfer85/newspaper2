@@ -50,3 +50,8 @@ class NewsTestCase(TestCase):
         response3 = self.client.get(reverse('news_list'))
         self.assertIn(b'Mi noticia test 2', response3.content)
         self.assertIn(b'Mi descripcion test 2', response3.content)
+
+        response4 = self.client.post(reverse('news_add'),
+                                     data={})
+        self.assertEqual(response4.status_code, 200)
+        self.assertIn(b'Este campo es obligatorio.', response4.content)
