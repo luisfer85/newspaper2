@@ -4,13 +4,15 @@ from django.conf import settings # La manera correcta de importar settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext as _
+from django.views.generic import CreateView, ListView
 
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
+
 
 def news_list(request):
     news_filtered = News.objects.published()
@@ -151,3 +153,27 @@ def event_delete(request, event_pk):
         event.delete()
         messages.success(request, _('Event successfully deleted'))
         return HttpResponseRedirect(reverse('events_list'))
+
+
+class NewsListView(ListView):
+    template_name = 'news/news_list.html'
+    model = News
+    context_object_name = 'news'  #Es el nombre del contexto (los datos) que le pasamos a la plantilla (Como en los render)
+
+    def get_queryset(self):
+        #Modifica la consulta normal (self.model.objects.all()) para que utilice el manager published()
+        return self.model.objects.published()
+
+class NewsAddView(CreateView):
+    model = News
+    form = NewsForm
+    template_name = 'news/news_edit.html'
+    fields = '__all__'
+    success_url = reverse_lazy('news_list_v2')
+
+    #La plantilla espera que le pasemos news_form (como nombre del contexto) pero por defecto esta clase le pasa form.
+    #Con este metodo, conseguimos pasar el formulario como news_form en vez de como form.
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(NewsAddView, self).get_context_data(*args, **kwargs)
+        ctx['news_form'] = ctx['form']
+        return ctx

@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^events/add/$', views.event_add, name='event_add'),
     url(r'^events/edit/(?P<event_pk>\d+)/$', views.event_edit, name='event_edit'),
     url(r'^events/delete/(?P<event_pk>\d+)/$', views.event_delete, name='event_delete'),
+    url(r'^v2/$', views.NewsListView.as_view(), name='news_list_v2'),
+    url(r'^v2/news/add/$', views.NewsAddView.as_view(), name='news_add_v2'),
 ]
