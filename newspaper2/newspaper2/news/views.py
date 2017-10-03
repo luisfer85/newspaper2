@@ -187,6 +187,14 @@ class NewsAddView(BaseNews, CreateView):
         ctx['news_form'] = ctx['form']
         return ctx
 
+
+class NewsPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 50
+
+
 class NewsListAPI(rfapiviews.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer  #Llamo al seralizador para transformar la query en json
+    pagination_class = NewsPagination
