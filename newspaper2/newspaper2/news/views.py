@@ -10,8 +10,12 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, ListView
 
+from rest_framework import generics as rfapiviews  #Utilizo un nombre mas facilito para generics
+from rest_framework.pagination import PageNumberPagination
+
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
+from newspaper2.news.serializers import NewsSerializer
 
 
 def news_list(request):
@@ -168,6 +172,7 @@ class NewsListView(BaseNews, ListView):
         #Modifica la consulta normal (self.model.objects.all()) para que utilice el manager published()
         return self.model.objects.published()
 
+
 class NewsAddView(BaseNews, CreateView):
     model = News
     form = NewsForm
@@ -181,3 +186,7 @@ class NewsAddView(BaseNews, CreateView):
         ctx = super(NewsAddView, self).get_context_data(*args, **kwargs)
         ctx['news_form'] = ctx['form']
         return ctx
+
+class NewsListAPI(rfapiviews.ListAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer  #Llamo al seralizador para transformar la query en json
