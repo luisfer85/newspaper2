@@ -204,3 +204,10 @@ class NewsListAPI(rfapiviews.ListAPIView):
 class NewsAddAPI(rfapiviews.CreateAPIView):
     model = News
     serializer_class = NewsSerializerComplete
+
+
+class NewsDetailAPI(rfapiviews.RetrieveAPIView):
+    queryset = News.objects.all()
+    model = News
+    serializer_class = NewsSerializerComplete
+    lookup_url_kwarg = 'newsitem_pk'

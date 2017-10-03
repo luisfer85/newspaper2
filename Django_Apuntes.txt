@@ -209,7 +209,20 @@ Automatizacion: (Ej: https://github.com/openwebinars-django/testango)
 
     2 Serializador: En nuestro caso convierte la queryset en json
 
+    3 Existe una aplicacion en django restframework para la autenticacion por tokens:
+      http://www.django-rest-framework.org/api-guide/authentication/
 
+
+---VARIOS---
+    1 Se pueden ver los atributos de un objeto de la siguiente manera:
+      pp self.__dict__
+      pp objeto.__dict__
+
+    2 Ejemplo de curl para la insercion de notias en la API:
+      (Metodo "normal")
+      curl -v http://85.214.225.9:8000/api/news/add/ -X POST --data title="Titulo de la noticia" --data publish_date="1999-12-12T10:10"
+      (Enviando JSON)
+      curl -v http://85.214.225.9:8000/api/news/add/ -X POST -H "Content-Type: application/json" --data '{"title":"Titulo de la noticia","publish_date":"1999-12-12T10:10"}'
 
 
 ---TAREAS---

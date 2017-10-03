@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^v2/news/add/$', views.NewsAddView.as_view(), name='news_add_v2'),
     url(r'^api/news/$', views.NewsListAPI.as_view(), name='news_list_api'),
     url(r'^api/news/add/$', views.NewsAddAPI.as_view(), name='news_add_api'),
+    url(r'^api/news/(?P<newsitem_pk>\d+)/$', views.NewsDetailAPI.as_view(), name='news_detail_api'),
 ]
