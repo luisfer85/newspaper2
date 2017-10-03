@@ -198,3 +198,4 @@ class NewsListAPI(rfapiviews.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer  #Llamo al seralizador para transformar la query en json
     pagination_class = NewsPagination
+    filter_fields = ('title',)  #Incluimos un filtro (http://85.214.225.9:8000/api/news/?title=Mi noticia) sobre el titulo

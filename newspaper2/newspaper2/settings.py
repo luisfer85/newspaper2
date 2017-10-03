@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newspaper2.news',
+    'django_filters',
     'bootstrap3',
     'rest_framework',
     'tinymce',
@@ -146,3 +147,8 @@ TINYMCE_DEFAULT_CONFIG = {
 BLOG_URL = 'http://www.lamilagrosamadrid.es/'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'newspaper2', 'locale')]
+
+REST_FRAMEWORK = {
+    #'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',) #Esto tambien parece funcionar
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
+}
