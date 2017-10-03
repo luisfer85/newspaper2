@@ -185,7 +185,8 @@ Automatizacion: (Ej: https://github.com/openwebinars-django/testango)
 
 
 ---VISTAS BASADAS EN CLASES---
-    1 Normalmente utilizamos clases que heredan de clases definidas por django como ListView o CreateView. Pero si queremos podemos crear una clase principal que herede por ejemplo de listview que contenga variables y/o metodos comunes a otras clases hijas que hereden de esta.
+    1 Normalmente utilizamos clases que heredan de clases definidas por django como ListView o CreateView. Pero si queremos podemos crear una clase principal (que herede o no, por ejemplo de listview) que contenga variables y/o metodos comunes a otras clases hijas que hereden de esta.
+    2 Cuidado con la herencia por la izquierda y por la derecha. Cuando heredamos de dos clases, se cogen todas las variables y metodos de la izquierda. De la derecha solo se coge lo que no existia en la herencia de la izquierda
     2 Cuando queremos hacer un reverse:
     reverse_lazy: Cuando esta fuera de una funcion/metodo
     reverse: Cuando esta dentro de una funcion/metodo

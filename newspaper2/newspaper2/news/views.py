@@ -155,7 +155,11 @@ def event_delete(request, event_pk):
         return HttpResponseRedirect(reverse('events_list'))
 
 
-class NewsListView(ListView):
+class BaseNews(object):
+    model = News
+
+
+class NewsListView(BaseNews, ListView):
     template_name = 'news/news_list.html'
     model = News
     context_object_name = 'news'  #Es el nombre del contexto (los datos) que le pasamos a la plantilla (Como en los render)
@@ -164,7 +168,7 @@ class NewsListView(ListView):
         #Modifica la consulta normal (self.model.objects.all()) para que utilice el manager published()
         return self.model.objects.published()
 
-class NewsAddView(CreateView):
+class NewsAddView(BaseNews, CreateView):
     model = News
     form = NewsForm
     template_name = 'news/news_edit.html'
