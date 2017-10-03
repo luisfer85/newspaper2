@@ -15,7 +15,7 @@ from rest_framework.pagination import PageNumberPagination
 
 from newspaper2.news.forms import NewsForm, EventForm
 from newspaper2.news.models import News, Event
-from newspaper2.news.serializers import NewsSerializer
+from newspaper2.news.serializers import NewsSerializer, NewsSerializerComplete
 
 
 def news_list(request):
@@ -199,3 +199,8 @@ class NewsListAPI(rfapiviews.ListAPIView):
     serializer_class = NewsSerializer  #Llamo al seralizador para transformar la query en json
     pagination_class = NewsPagination
     filter_fields = ('title',)  #Incluimos un filtro (http://85.214.225.9:8000/api/news/?title=Mi noticia) sobre el titulo
+
+
+class NewsAddAPI(rfapiviews.CreateAPIView):
+    model = News
+    serializer_class = NewsSerializerComplete
